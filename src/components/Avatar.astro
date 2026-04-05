@@ -1,0 +1,37 @@
+---
+interface sizesAvatar { sm: string; md: string, lg: string, xl: string, [key: string]: string; };
+interface shapeAvatar { circle: string; square: string, [key: string]: string; };
+const { 
+  src, 
+  alt = "User Avatar", 
+  size = "xl", 
+  shape = "circle"
+} = Astro.props;
+
+const sizeClasses: sizesAvatar = { 
+    sm: "h-8 w-8", 
+    md: "h-12 w-12", 
+    lg: "h-16 w-16", 
+    xl: "h-24 w-24"
+};
+
+const shapeClasses: shapeAvatar = {
+  circle: "rounded-full",
+  square: "rounded-lg"
+};
+---
+
+<!-- Component Template -->
+<div class={`inline-block overflow-hidden bg-gray-200 ${sizeClasses[size]} ${shapeClasses[shape]}`}>
+  {src ? (
+    <img 
+      src={src} 
+      alt={alt} 
+      class="h-full w-full object-cover" 
+    />
+  ) : (
+    <div class="flex h-full w-full items-center justify-center text-gray-500">
+      <span class="text-xs font-medium uppercase">{alt.charAt(0)}</span>
+    </div>
+  )}
+</div>
