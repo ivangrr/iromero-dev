@@ -6,12 +6,19 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   integrations: [react()], 
+  build: {
+    assets: 'assets' 
+  },
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      fs: {
-        allow: ['..']
+    build: {
+      cssCodeSplit: false, // Forces all CSS into ONE file, preventing the @ symbol issues
+      rollupOptions: {
+        output: {
+          // Alternative naming pattern
+          assetFileNames: 'assets/style.[hash][extname]'
+        }
       }
     }
-  },
+  }  
 });
