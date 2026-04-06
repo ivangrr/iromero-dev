@@ -8,20 +8,22 @@ interface Props {
 	description?: string;
 }
 
-const { title = "Ivan Romero", description = "Senior Software Developer. Building Robust & User-Friendly Applications, Agile Practitioner and WCAG Enthusiast." } = Astro.props;
+const { title, description} = Astro.props;
 ---
 
-<div class="bg-gray-900">
+<div class="relative bg-gray-900 overflow-hidden min-h-screen w-full">
 	<div class="relative isolate px-6 pt-14 lg:px-8">
 		<div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">  
-			<div class="text-center">
+			<div class="text-center flex flex-col items-center">
 				<Avatar src="/developer.png" />
-				<h1 class="text-5xl font-semibold tracking-tight text-balance text-white sm:text-7xl">{title}</h1>
-				<p class="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+				<h1 class="text-5xl font-semibold tracking-tight text-white sm:text-7xl">
+					{title}
+				</h1>
+				<p class="mt-8 text-lg font-medium text-gray-400 sm:text-xl/8">
 					{description}
 				</p>
-				<div class="mt-10 flex items-center justify-center gap-x-6">
-					<LinkedInButton/>
+				<div class="mt-10">
+					<LinkedInButton />
 				</div>
 			</div>
 		</div>
