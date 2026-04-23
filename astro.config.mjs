@@ -7,6 +7,14 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr', 'es'],
+    routing: {
+        prefixDefaultLocale: false,
+        fallbackType: 'redirect'
+    }
+  },
   site: 'https://iromero.dev',
   integrations: [react(), sitemap()], 
   build: {

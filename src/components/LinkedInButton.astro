@@ -1,7 +1,6 @@
 ---
-const { url = "https://linkedin.com/in/ivan-r-8b76684a" } = Astro.props;
+const { url = "https://linkedin.com/in/ivan-r-8b76684a/?locale=" + Astro.currentLocale + "-"  +  Astro.currentLocale?.toUpperCase() } = Astro.props;
 ---
-
 <a
   href={url}
   target="_blank"
